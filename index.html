@@ -4,36 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Professional Quiz App</title>
+  <link rel="icon" type="image/png" href="/q.png">
   <link rel="stylesheet" href="quiz.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="container">
     <!-- Landing Page -->
     <div id="landing-page">
-      <h1>Knowledge Quiz</h1>
-      <p>Test your skills with 10 carefully curated questions. You have 5 minutes to complete the quiz. Are you ready?</p>
-      <button id="start-quiz">Begin Quiz</button>
+      <img src="q.png" alt="Quiz Logo" class="logo" id="logo">
+      <h1>Ultimate Knowledge Challenge</h1>
+      <p>Test your skills with 10 mind-bending questions. Only 5 minutes on the clock! Ready to prove yourself?</p>
+      <button id="start-quiz" class="glow-btn">Launch Quiz</button>
     </div>
 
     <!-- Quiz Section -->
     <div id="quiz-section" class="hidden">
       <div class="header">
-        <span class="timer">Time Remaining: <span id="timer">05:00</span></span>
-        <span class="progress">Question <span id="question-number"></span>/10</span>
+        <span class="timer">Time: <span id="timer">05:00</span></span>
+        <span class="progress">Q<span id="question-number"></span>/10</span>
       </div>
       <p id="question-text"></p>
       <div id="options"></div>
       <div class="navigation">
-        <button id="prev-btn" disabled>Previous</button>
-        <button id="next-btn">Next</button>
+        <button id="prev-btn" disabled class="nav-btn">Previous</button>
+        <button id="next-btn" class="nav-btn">Next</button>
       </div>
     </div>
 
     <!-- Results Section -->
     <div id="results-section" class="hidden">
-      <h2>Quiz Results</h2>
-      <p>Your Score: <span id="score"></span>/10</p>
-      <button id="restart-quiz">Retake Quiz</button>
+      <h2>Congratulations!</h2>
+      <p class="score-text">Your Score: <span id="score"></span>/10</p>
+      <div class="score-details">
+        <p>Thank you for participating in the Ultimate Knowledge Challenge.</p>
+        <p>Keep testing your skills and aim for a perfect score!</p>
+      </div>
+      <button id="restart-quiz" class="glow-btn">Retake Quiz</button>
     </div>
   </div>
   <script src="quiz.js"></script>

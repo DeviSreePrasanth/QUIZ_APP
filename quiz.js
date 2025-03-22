@@ -38,9 +38,21 @@ async function fetchQuestions() {
   }
 }
 
+function transitionSection(outSection, inSection) {
+  outSection.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  outSection.style.opacity = '0';
+  outSection.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    outSection.classList.add('hidden');
+    inSection.classList.remove('hidden');
+    inSection.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    inSection.style.opacity = '1';
+    inSection.style.transform = 'scale(1)';
+  }, 500);
+}
+
 function startQuiz() {
-  landingPage.classList.add('hidden');
-  quizSection.classList.remove('hidden');
+  transitionSection(landingPage, quizSection);
   fetchQuestions().then(() => {
     displayQuestion();
     startTimer();
@@ -110,34 +122,6 @@ function calculateScore() {
 
 function showResults() {
   clearInterval(timer);
-  quizSection.classList.add('hidden');
-  resultsSection.classList.remove('hidden');
+  transitionSection(quizSection, resultsSection);
   scoreDisplay.textContent = score;
 }
-// Add this function to handle smooth transitions between sections
-function transitionSection(outSection, inSection) {
-    outSection.style.transition = 'opacity 0.5s ease';
-    outSection.style.opacity = '0';
-    setTimeout(() => {
-      outSection.classList.add('hidden');
-      inSection.classList.remove('hidden');
-      inSection.style.transition = 'opacity 0.5s ease';
-      inSection.style.opacity = '1';
-    }, 500);
-  }
-  
-  // Update startQuiz to use transition
-  function startQuiz() {
-    transitionSection(landingPage, quizSection);
-    fetchQuestions().then(() => {
-      displayQuestion();
-      startTimer();
-    });
-  }
-  
-  // Update showResults to use transition
-  function showResults() {
-    clearInterval(timer);
-    transitionSection(quizSection, resultsSection);
-    scoreDisplay.textContent = score;
-  }
