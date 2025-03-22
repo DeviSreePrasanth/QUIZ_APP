@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Quiz App</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Landing Page -->
+    <div id="landing-page">
+      <h1>Knowledge Quiz</h1>
+      <p>Test your skills with 10 carefully curated questions. You have 5 minutes to complete the quiz. Are you ready?</p>
+      <button id="start-quiz">Begin Quiz</button>
+    </div>
+
+    <!-- Quiz Section -->
+    <div id="quiz-section" class="hidden">
+      <div class="header">
+        <span class="timer">Time Remaining: <span id="timer">05:00</span></span>
+        <span class="progress">Question <span id="question-number"></span>/10</span>
+      </div>
+      <p id="question-text"></p>
+      <div id="options"></div>
+      <div class="navigation">
+        <button id="prev-btn" disabled>Previous</button>
+        <button id="next-btn">Next</button>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results-section" class="hidden">
+      <h2>Quiz Results</h2>
+      <p>Your Score: <span id="score"></span>/10</p>
+      <button id="restart-quiz">Retake Quiz</button>
+    </div>
+  </div>
+  <script src="quiz.js"></script>
+</body>
+</html>
